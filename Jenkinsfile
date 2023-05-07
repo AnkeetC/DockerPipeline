@@ -1,6 +1,6 @@
 def containerName="docker-pipeline"
 def tag="latest"
-def dockerHubUser="anujsharma1990"
+def dockerHubUser="ankeetchauhan505"
 def httpPort="8090"
 
 node {
@@ -18,15 +18,15 @@ node {
     }
 
     stage('Image Build'){
-        sh "docker build -t $containerName:$tag  -t $containerName --pull --no-cache ."
+        sh "docker build -t ankeetchauhan505/docker-pipeline:latest  -t $ankeetchauhan505/docker-pipeline --pull --no-cache ."
         echo "Image build complete"
     }
 
     stage('Push to Docker Registry'){
         withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
-            sh "docker login -u $dockerUser -p $dockerPassword"
-            sh "docker tag $containerName:$tag $dockerUser/$containerName:$tag"
-            sh "docker push $dockerUser/$containerName:$tag"
+            sh "docker login -u ankeetchauhan505 -p Ankit@123"
+            sh "docker tag ankeetchauhan505/docker-pipeline:latest ankeetchauhan505/$ankeetchauhan505/docker-pipeline:latest"
+            sh "docker push ankeetchauhan505/ankeetchauhan505/docker-pipeline:latest"
             echo "Image push complete"
         }
     }

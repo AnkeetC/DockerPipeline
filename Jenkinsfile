@@ -37,10 +37,10 @@ node {
         echo "Application started on port: ${httpPort} (http)"
         */
         sh """
-           kubectl get pods
-           kubectl delete deployment kubernetes-bootcamp | true
-           kubectl create deployment kubernetes-bootcamp --image=docker.io/anujsharma1990/docker-pipeline --port=8090
-           kubectl get pods
+           sudo kubectl get pods
+			   sudo kubectl delete deployment kubernetes-bootcamp | true
+			   sudo kubectl create deployment kubernetes-bootcamp --image=docker.io/anujsharma1990/docker-pipeline --port=8090
+			   sudo kubectl get pods
         """
 
     }

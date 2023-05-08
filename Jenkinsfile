@@ -23,7 +23,7 @@ node {
     }
 
     stage('Push to Docker Registry'){
-        withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+        withCredentials([usernamePassword(credentialsId: 'ankeetchauhan505', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
             sh "docker login -u ankeetchauhan505 -p Ankit@123"
             sh "docker tag docker-pipeline:latest ankeetchauhan505/ankeetchauhan505/docker-pipeline:latest"
             sh "docker push ankeetchauhan505/ankeetchauhan505/docker-pipeline:latest"

@@ -30,14 +30,18 @@ node {
         }
     }
 
-   node('KubernetesMaster'){
-		stage('Run App'){
-			sh """
-			   sudo kubectl get pods
-			   sudo kubectl delete deployment kubernetes-bootcamp | true
-			   sudo kubectl create deployment kubernetes-bootcamp --image=docker.io/ankeetchauhan505/docker-pipeline --port=8090
-			   sudo kubectl get pods
-			"""
+   stage('Run App'){
+        /*sh "docker rm $containerName -f"
+        sh "docker pull $dockerHubUser/$containerName"
+        sh "docker run -d --rm -p $httpPort:$httpPort --name $containerName $dockerHubUser/$containerName:$tag"
+        echo "Application started on port: ${httpPort} (http)"
+        */
+        sh """
+           kubectl get pods
+           kubectl delete deployment kubernetes-bootcamp | true
+           kubectl create deployment kubernetes-bootcamp --image=docker.io/anujsharma1990/docker-pipeline --port=8090
+           kubectl get pods
+        """
 
     }
 

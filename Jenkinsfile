@@ -18,7 +18,7 @@ node {
     }
 
     stage('Image Build'){
-        sh "docker build -t ankeetchauhan505/docker-pipeline:latest  -t $ankeetchauhan505/docker-pipeline --pull --no-cache ."
+        sh "docker build -t ankeetchauhan505/docker-pipeline:latest  -t ankeetchauhan505/docker-pipeline --pull --no-cache ."
         echo "Image build complete"
     }
 

@@ -22,11 +22,11 @@ node {
         echo "Image build complete"
     }
 
-    stage('Push to Docker Registry'){
-        withCredentials([usernamePassword(credentialsId: 'ankeetchauhan505', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
-            sh "docker login -u ankeetchauhan505 -p Ankit@123"
-            sh "docker tag docker-pipeline:latest ankeetchauhan505/ankeetchauhan505/docker-pipeline:latest"
-            sh "docker push ankeetchauhan505/ankeetchauhan505/docker-pipeline:latest"
+   stage('Push to Docker Registry'){
+        withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+            sh "docker login -u $dockerUser -p $dockerPassword"
+            sh "docker tag $containerName:$tag $dockerUser/$containerName:$tag"
+            sh "docker push $dockerUser/$containerName:$tag"
             echo "Image push complete"
         }
     }

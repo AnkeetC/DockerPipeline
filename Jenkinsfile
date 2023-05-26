@@ -30,12 +30,12 @@ node {
         }
     }
 
-   node('KubernetesMaster'){
+   node('Master K8'){
 		stage('Run App'){
 			sh """
 			   sudo kubectl get pods
 			   sudo kubectl delete deployment kubernetes-bootcamp | true
-			   sudo kubectl create deployment kubernetes-bootcamp --image=docker.io/anujsharma1990/docker-pipeline --port=8090
+			   sudo kubectl create deployment kubernetes-bootcamp --image=docker.io/ankeetchauhan505/docker-pipeline --port=8090
 			   sudo kubectl get pods
 			"""
 		}
